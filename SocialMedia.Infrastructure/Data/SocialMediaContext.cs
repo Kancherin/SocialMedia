@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using SocialMedia.Core.Data;
 
 namespace SocialMedia.Infrastructure.Data
 {
@@ -19,14 +20,14 @@ namespace SocialMedia.Infrastructure.Data
         public virtual DbSet<Publicacion> Publicacion { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                //TODO: sacar la cadena de coneccion para el config
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=SocialMedia;Integrated Security = true");
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        //TODO: sacar la cadena de coneccion para el config
+        //        optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=SocialMedia;Integrated Security = true");
+        //    }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -103,10 +104,6 @@ namespace SocialMedia.Infrastructure.Data
                     .HasMaxLength(10)
                     .IsUnicode(false);
             });
-
-            OnModelCreatingPartial(modelBuilder);
         }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

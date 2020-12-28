@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SocialMedia.Infrastructure.Data
+namespace SocialMedia.Core.Data
 {
     public partial class Publicacion
     {
